@@ -1,22 +1,14 @@
-import "./App.css";
+import BookCard from "./components/BookCard";
+import BookList from "./components/BookList";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Library App</h1>
-      </header>
-      <main>
-        List of Available books
-        <div className="book-list">
-          <div className="book">
-            <img src="" alt="" className="cover-image" />
-            <div className="details">
-              
-            </div>
-          </div>
-        </div>
-      </main>
+      <Header />
+      <div className="container">
+        <BookList />
+      </div>
     </div>
   );
 }
