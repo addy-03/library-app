@@ -1,13 +1,16 @@
 .book-list {
   display: grid;
+  width: 95%;
   grid-template-columns: repeat(4, minmax(300px, auto));
   justify-content: center;
+  align-content: center;
   justify-items: center;
   align-items: center;
   gap: 10px;
 }
 
 .book {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +18,75 @@
   gap: 10px;
   width: 100%;
   padding: 10px;
+  background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.3) 0px 0px 1px 0px;
   transition: all 0.2s ease-in-out;
   &:hover {
     scale: 1.05;
     z-index: 1;
+    cursor: pointer;
   }
 
   img {
-    width: 250px;
+    width: 280px;
     max-height: 335px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
+  }
+
+  .controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: fill;
+      background: transparent;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        cursor: pointer;
+        filter: invert(100%);
+      }
+    }
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 10px;
+}
+
+.book-modal {
+  position: absolute;
+  flex-direction: row;
+  width: 90vw;
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 20px;
+  gap: 20px;
+
+  &:hover {
+    scale: none;
+    cursor: default;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    padding: 20px;
+    gap: 20px;
   }
 }
