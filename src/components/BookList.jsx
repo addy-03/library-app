@@ -3,8 +3,12 @@ import BookCard from "./BookCard";
 const BookList = () => {
   return (
     <>
-      <h2>List of Available books</h2>
+      <h2>List of Available Books</h2>
       <div className="book-list">
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
         <BookCard />
         <BookCard />
         <BookCard />

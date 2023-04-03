@@ -1,0 +1,13 @@
+@use "books.scss" as *;
+@use "header.scss" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  h2{
+    text-align: center;
+    margin: 20px 0;
+  }
+}

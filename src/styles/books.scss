@@ -1,0 +1,33 @@
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(300px, auto));
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.3) 0px 0px 1px 0px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    scale: 1.05;
+    z-index: 1;
+  }
+
+  img {
+    width: 250px;
+    max-height: 335px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+  }
+}
