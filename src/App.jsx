@@ -1,4 +1,3 @@
-import BookCard from "./components/BookCard";
 import BookList from "./components/BookList";
 import Header from "./components/Header";
 
