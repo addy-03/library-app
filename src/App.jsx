@@ -1,19 +1,23 @@
-import BookList from "./components/BookList";
-import BookModal from "./components/BookModal";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Manage from "./pages/Manage";
 import Signup from "./pages/Signup";
 import "./styles/main.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="container">
-      {/* <Home /> */}
-      <Manage />
-      {/* <Login /> */}
-      {/* <Signup /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="manage" element={<Manage />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
