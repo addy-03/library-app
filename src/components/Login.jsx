@@ -33,7 +33,9 @@ const Login = () => {
           })
         }
       />
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin} className="login-btn">Login</button>
+      <p>Don't have an account?</p>
+      <button className="register-btn">Register</button>
     </div>
   );
 };

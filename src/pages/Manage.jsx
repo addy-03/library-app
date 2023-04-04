@@ -11,7 +11,7 @@ const Manage = () => {
       </div>
       <div id="login" className="modal-container">
         <Login />
-        <Signup/>
+        {/* <Signup /> */}
       </div>
     </>
   );

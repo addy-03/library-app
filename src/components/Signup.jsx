@@ -2,12 +2,13 @@ import { useState } from "react";
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
-  const handleSignup = () => {
-    console.log("formdata ",formData);
+  const handleSignup = (e) => {
+    e.preventDefault();
+    console.log("formdata ", formData);
   };
 
   return (
-    <div className="signup">
+    <form className="signup">
       <h2>Sign Up</h2>
       <input
         type="text"
@@ -45,8 +46,12 @@ const Signup = () => {
           })
         }
       />
-      <button onClick={handleSignup}>Sign Up</button>
-    </div>
+      <button onClick={(e) => handleSignup(e)} type="submit">
+        Sign Up
+      </button>
+      <p>Already have an account?</p>
+      <button className="login-btn">Login</button>
+    </form>
   );
 };
 
