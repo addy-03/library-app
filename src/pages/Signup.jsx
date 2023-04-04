@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Header from "../components/Header";
 
 const Signup = () => {
   const [error, setError] = useState(false);
@@ -34,10 +35,12 @@ const Signup = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="signup">
-      <form>
+    <>
+      <Header />
+      <div className="signup">
         <h2>Sign Up</h2>
-        {/* <input
+        <form>
+          {/* <input
           type="text"
           name="Name"
           id="name"
@@ -50,42 +53,43 @@ const Signup = () => {
             })
           }
         /> */}
-        <input
-          type="email"
-          name="Email"
-          id="email"
-          placeholder="Email"
-          required
-          value={formData.email}
-          onChange={(e) =>
-            setFormData((state) => {
-              return { ...state, email: e.target.value };
-            })
-          }
-        />
-        <input
-          type="password"
-          name="Password"
-          id="password"
-          placeholder="Password"
-          required
-          value={formData.password}
-          onChange={(e) =>
-            setFormData((state) => {
-              return { ...state, password: e.target.value };
-            })
-          }
-        />
-        <button onClick={(e) => handleSignup(e)} type="submit">
-          Sign Up
+          <input
+            type="email"
+            name="Email"
+            id="email"
+            placeholder="Email"
+            required
+            value={formData.email}
+            onChange={(e) =>
+              setFormData((state) => {
+                return { ...state, email: e.target.value };
+              })
+            }
+          />
+          <input
+            type="password"
+            name="Password"
+            id="password"
+            placeholder="Password"
+            required
+            value={formData.password}
+            onChange={(e) =>
+              setFormData((state) => {
+                return { ...state, password: e.target.value };
+              })
+            }
+          />
+          <button onClick={(e) => handleSignup(e)} type="submit">
+            Sign Up
+          </button>
+        </form>
+        {error && <p className="error">An Error Occured</p>}
+        <p>Already have an account?</p>
+        <button className="login-btn" onClick={() => navigate("/login")}>
+          Login
         </button>
-      </form>
-      {error && <p className="error">An Error Occured</p>}
-      <p>Already have an account?</p>
-      <button className="login-btn" onClick={() => navigate("/login")}>
-        Login
-      </button>
-    </div>
+      </div>
+    </>
   );
 };
 
