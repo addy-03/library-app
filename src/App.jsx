@@ -7,6 +7,7 @@ import Manage from "./pages/Manage";
 import Signup from "./pages/Signup";
 import "./styles/main.scss";
 import { useContext } from "react";
+import EditBook from "./pages/EditBook";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -37,6 +38,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AddBook />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="editBook"
+              element={
+                <ProtectedRoute>
+                  <EditBook />
                 </ProtectedRoute>
               }
             />
