@@ -1,15 +1,35 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
+  const [error, setError] = useState(false);
+
   const [formData, setFormData] = useState({
-    name: "",
+    // name: "",
     email: "",
     password: "",
   });
+
   const handleSignup = (e) => {
     e.preventDefault();
     console.log("formdata ", formData);
+
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("user", user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setError(true);
+        // ..
+      });
   };
 
   const navigate = useNavigate();
@@ -18,7 +38,7 @@ const Signup = () => {
     <div className="signup">
       <form>
         <h2>Sign Up</h2>
-        <input
+        {/* <input
           type="text"
           name="Name"
           id="name"
@@ -30,7 +50,7 @@ const Signup = () => {
               return { ...state, name: e.target.value };
             })
           }
-        />
+        /> */}
         <input
           type="email"
           name="Email"
@@ -61,6 +81,7 @@ const Signup = () => {
           Sign Up
         </button>
       </form>
+      {error && <p className="error">An Error Occured</p>}
       <p>Already have an account?</p>
       <button className="login-btn" onClick={() => navigate("/login")}>
         Login

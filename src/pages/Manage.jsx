@@ -1,7 +1,5 @@
 import BookList from "../components/BookList";
 import Header from "../components/Header";
-import Login from "./Login";
-import Signup from "./Signup";
 
 const Manage = () => {
   return (
