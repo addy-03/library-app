@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Header from "../components/Header";
 import { collection, addDoc } from "firebase/firestore";
 import { db, storage } from "../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const AddBook = () => {
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     author: "",
@@ -14,9 +18,18 @@ const AddBook = () => {
     image: null,
   });
 
+  const navigate = useNavigate();
+  const { currentUser } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("AddBook Data", formData);
+
+    if (!currentUser) {
+      setError(true);
+      setErrorMsg("Librarian Must Login to Add Books");
+      return;
+    }
 
     //need to change the image url to unique id
     const storageRef = ref(storage, "images/" + formData.title);
@@ -27,17 +40,24 @@ const AddBook = () => {
       "state_changed",
       (snapshot) => {},
       (error) => {
-        console.log("Image upload Error", error);
+        setErrorMsg("Image upload Error");
+        setError(true);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          const docRef = addDoc(collection(db, "books"), {
-            ...formData,
-            image: downloadURL,
+        getDownloadURL(uploadTask.snapshot.ref)
+          .then((downloadURL) => {
+            console.log("File available at", downloadURL);
+            const docRef = addDoc(collection(db, "books"), {
+              ...formData,
+              image: downloadURL,
+              uploadedBy: currentUser.uid,
+            }).then(navigate("/manage"));
+            console.log("Added Doc", docRef);
+          })
+          .catch((error) => {
+            setError(true);
+            setErrorMsg(error.toString());
           });
-          console.log("Added Doc", docRef);
-        });
       }
     );
   };
@@ -137,6 +157,7 @@ const AddBook = () => {
           />
           <button type="submit">Submit</button>
         </form>
+        {error && <p className="error">{errorMsg}</p>}
       </div>
     </>
   );
