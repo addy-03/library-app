@@ -1,15 +1,17 @@
 @use "books.scss" as *;
 @use "header.scss" as *;
 @use "login.scss" as *;
+@use "modal.scss" as *;
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   width: 100%;
-
-  h2 {
-    text-align: center;
-    margin: 20px 0;
-  }
+  height: 100%;
+}
+h2 {
+  text-align: center;
+  margin: 20px 0;
 }

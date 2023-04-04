@@ -1,18 +1,14 @@
 import BookList from "../components/BookList";
-import Login from "../components/Login";
-import Signup from "../components/Signup";
+import Header from "../components/Header";
+import Login from "./Login";
+import Signup from "./Signup";
 
 const Manage = () => {
   return (
     <>
-      <div className="container manage">
-        <button className="add-book">Add Book</button>
-        <BookList controls={true} />
-      </div>
-      <div id="login" className="modal-container">
-        <Login />
-        {/* <Signup /> */}
-      </div>
+      <Header />
+      <button className="add-book">Add Book</button>
+      <BookList controls={true} />
     </>
   );
 };

@@ -1,8 +1,14 @@
 import book1 from "../assets/books/Book.jpg";
 
 const BookModal = () => {
+  const closeModal = () => {
+    let loginEl = document.getElementsByClassName("book-modal-container")[0];
+    console.log(loginEl);
+    loginEl.classList.toggle("modal-hidden");
+  };
+
   return (
-    <div className="modal-container">
+    <div className="book-modal-container modal-hidden">
       <div className="book-modal book">
         <img src={book1} alt="" className="cover-image" />
         <div className="details">
@@ -23,6 +29,9 @@ const BookModal = () => {
           </div>
         </div>
       </div>
+      <span className="close-btn" onClick={closeModal}>
+        &times;
+      </span>
     </div>
   );
 };
