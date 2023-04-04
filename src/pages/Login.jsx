@@ -1,18 +1,35 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = (e) => {
+  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
+
   const handleLogin = (e) => {
-    console.log("formdata ", formData);
     e.preventDefault();
+    console.log("formdata ", formData);
+
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("user", user);
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        setError(true);
+      });
   };
 
   const navigate = useNavigate();
 
   return (
     <div className="login">
-      <form onSubmit={handleLogin}></form>
       <h2>Login</h2>
       <input
         type="email"

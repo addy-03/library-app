@@ -21,14 +21,13 @@ const Signup = () => {
         // Signed in
         const user = userCredential.user;
         console.log("user", user);
-        // ...
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+        console.log(errorCode, errorMessage);
         setError(true);
-        // ..
       });
   };
 
