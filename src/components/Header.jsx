@@ -6,14 +6,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
-  console.log("Current user", currentUser);
-  console.log("user ID", currentUser?.uid);
+  // console.log("Current user", currentUser);
+  // console.log("user ID", currentUser?.uid);
   const navigate = useNavigate();
   const location = useLocation();
 
   const onLoginPage =
     location.pathname === "/login" || location.pathname === "/signup";
-  console.log("location", onLoginPage);
+  // console.log("location", onLoginPage);
 
   return (
     <header>

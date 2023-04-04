@@ -3,7 +3,7 @@ import book1 from "../assets/books/Book.jpg";
 const BookModal = () => {
   const closeModal = () => {
     let loginEl = document.getElementsByClassName("book-modal-container")[0];
-    console.log(loginEl);
+    // console.log(loginEl);
     loginEl.classList.toggle("modal-hidden");
   };
 

@@ -15,19 +15,19 @@ const Signup = () => {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log("formdata ", formData);
+    // console.log("formdata ", formData);
 
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("user", user);
+        // console.log("user", user);
         navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        // console.log(errorCode, errorMessage);
         setError(true);
       });
   };

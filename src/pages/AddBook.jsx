@@ -23,7 +23,7 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("AddBook Data", formData);
+    // console.log("AddBook Data", formData);
 
     if (!currentUser) {
       setError(true);
@@ -46,13 +46,13 @@ const AddBook = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref)
           .then((downloadURL) => {
-            console.log("File available at", downloadURL);
+            // console.log("File available at", downloadURL);
             const docRef = addDoc(collection(db, "books"), {
               ...formData,
               image: downloadURL,
               uploadedBy: currentUser.uid,
             }).then(navigate("/manage"));
-            console.log("Added Doc", docRef);
+            // console.log("Added Doc", docRef);
           })
           .catch((error) => {
             setError(true);
@@ -123,9 +123,10 @@ const AddBook = () => {
             required
           ></textarea>
           <div className="genre-list">
-            {formData.genres.map((genre, i) => {
+            {/* {formData.genres.map((genre, i) => {
               return <span key={i}>{genre}</span>;
-            })}
+            })} */}
+            <b>Genres: </b>{formData.genres.join(", ")}
           </div>
           <input
             type="text"

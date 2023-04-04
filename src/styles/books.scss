@@ -17,7 +17,8 @@
   justify-content: flex-start;
   gap: 10px;
   width: 100%;
-  max-width: 280;
+  max-width: 280px;
+  height: 660px;
   padding: 10px;
   background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px,
@@ -63,8 +64,11 @@
 .details {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   text-align: justify;
   padding: 10px;
+  overflow: hidden;
+  
 }
 
 .book-modal {

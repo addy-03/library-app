@@ -5,13 +5,15 @@ import BookCard from "./BookCard";
 // import { db } from "../firebase";
 
 const BookList = (props) => {
+  const { booksData } = props;
   return (
     <>
       <h2>List of Available Books</h2>
       <div className="book-list">
-        {props.booksData &&
-          props.booksData.map((data, i) => {
-            return <BookCard key={i} controls={props.controls} data={data} />;
+        {booksData &&
+          booksData.map((books) => {
+            console.log(books)
+            return <BookCard key={books.id} controls={props.controls} data={books.data} />;
           })}
       </div>
     </>

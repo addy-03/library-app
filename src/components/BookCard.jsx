@@ -5,16 +5,16 @@ import deleteIcon from "../assets/icons/delete-icon.svg";
 const BookCard = (props) => {
   return (
     <div className="book">
-      <img src={book1} alt="" className="cover-image" />
+      <img src={props.data.image} alt="" className="cover-image" />
       <div className="details">
         <div className="title">
-          <b>Title: {props.data.title}</b>
+          <b>Title:</b> {props.data.title}
         </div>
         <div className="author">
-          <b>Author: {props.data.author}</b>
+          <b>Author:</b> {props.data.author}
         </div>
         <div className="genres">
-          <b>Genres: {props.data.genres.join(", ")}</b>
+          <b>Genres:</b> {props?.data.genres?.join(", ")}
         </div>
         <div className="excerpt">
           <b>Excerpt:</b> {props.data.excerpt}

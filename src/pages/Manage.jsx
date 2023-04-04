@@ -13,21 +13,25 @@ const Manage = () => {
   const [booksData, setBooksData] = useState([]);
 
   useEffect(() => {
-    const q = query(
-      collection(db, "books"),
-      where("uploadedBy", "==", currentUser.uid)
-    );
+    // console.log("currentUser", currentUser);
+    setBooksData([]);
+    if (Object.keys(currentUser).length !== 0) {
+      const q = query(
+        collection(db, "books"),
+        where("uploadedBy", "==", currentUser.uid)
+      );
 
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        setBooksData((books) => [...books, doc.data()]);
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setBooksData((books) => [...books, { data: doc.data(), id: doc.id }]);
+        });
       });
-    });
 
-    return () => unsubscribe();
-  }, [currentUser.uid]);
+      return () => unsubscribe();
+    }
+  }, [currentUser, currentUser.uid]);
 
-  console.log("Current books: ", booksData);
+  // console.log("Current books: ", booksData);
 
   return (
     <>
