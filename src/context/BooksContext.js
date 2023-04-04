@@ -16,9 +16,7 @@ export const BooksContextProvider = ({ children }) => {
           currentBookID: actions.payload,
         };
       case "SET_BOOKS":
-        return {
-          books: actions.payload,
-        };
+        return { ...state, books: actions.payload };
       default:
         return state;
     }
