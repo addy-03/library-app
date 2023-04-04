@@ -17,6 +17,7 @@
   justify-content: flex-start;
   gap: 10px;
   width: 100%;
+  max-width: 280;
   padding: 10px;
   background-color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px,
@@ -85,4 +86,13 @@
     padding: 20px;
     gap: 20px;
   }
+}
+
+.add-book-btn {
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.error {
+  color: red;
 }
