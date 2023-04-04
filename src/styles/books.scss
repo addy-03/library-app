@@ -71,27 +71,6 @@
   
 }
 
-.book-modal {
-  width: 90vw;
-  height: 90vh;
-  flex-direction: row;
-
-  padding: 20px;
-  gap: 20px;
-
-  &:hover {
-    scale: none;
-    cursor: default;
-  }
-  .details {
-    display: flex;
-    flex-direction: column;
-    text-align: justify;
-    padding: 20px;
-    gap: 20px;
-  }
-}
-
 .add-book-btn {
   margin: 10px 0;
   padding: 10px;

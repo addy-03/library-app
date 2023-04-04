@@ -1,31 +1,37 @@
+import { useContext } from "react";
 import book1 from "../assets/books/Book.jpg";
+import { BooksContext } from "../context/BooksContext";
 
 const BookModal = () => {
+  const { data } = useContext(BooksContext);
+  // console.log("Modal data", data);
+
+  const bookData = data?.books.filter(
+    (book) => book.id === data.currentBookID
+  )[0];
+  // console.log("Modal bookData", bookData);
+
   const closeModal = () => {
-    let loginEl = document.getElementsByClassName("book-modal-container")[0];
-    // console.log(loginEl);
-    loginEl.classList.toggle("modal-hidden");
+    let modalEl = document.getElementsByClassName("book-modal-container")[0];
+    modalEl.classList.toggle("modal-hidden");
   };
 
   return (
     <div className="book-modal-container modal-hidden">
       <div className="book-modal book">
-        <img src={book1} alt="" className="cover-image" />
+        <img src={bookData.data.image} alt="" className="cover-image" />
         <div className="details">
           <div className="title">
-            <b>Title:</b>{" "}
+            <b>Title:</b> {bookData.data.title}
           </div>
           <div className="author">
-            <b>Author:</b>{" "}
+            <b>Author:</b> {bookData.data.author}
           </div>
           <div className="genres">
-            <b>Genres:</b>{" "}
+            <b>Genres:</b> {bookData.data.genres?.join(", ")}
           </div>
           <div className="excerpt">
-            <b>Excerpt:</b> Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Sint architecto laudantium, repellendus ad autem saepe minima
-            magni eveniet assumenda ratione debitis consequatur illum voluptas
-            non?
+            <b>Excerpt:</b> {bookData.data.excerpt}
           </div>
         </div>
       </div>

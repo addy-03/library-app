@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+import BookModal from "../components/BookModal";
 
 const Manage = () => {
   const navigate = useNavigate();
@@ -39,7 +40,8 @@ const Manage = () => {
       <button className="add-book-btn" onClick={() => navigate("/addBook")}>
         Add Book
       </button>
-      <BookList controls={true} booksData={booksData} />
+      <BookList controls={currentUser !== null} booksData={booksData} />
+      <BookModal />
     </>
   );
 };

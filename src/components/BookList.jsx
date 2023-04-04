@@ -13,7 +13,7 @@ const BookList = (props) => {
         {booksData &&
           booksData.map((books) => {
             console.log(books)
-            return <BookCard key={books.id} controls={props.controls} data={books.data} />;
+            return <BookCard key={books.id} controls={props.controls} data={books.data} id={books.id}/>;
           })}
       </div>
     </>

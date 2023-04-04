@@ -10,13 +10,13 @@ export const BooksContextProvider = ({ children }) => {
   const booksReducer = (state, actions) => {
     switch (actions.type) {
       case "CHANGE_BOOK_ID":
+        console.log("payload", actions.payload);
         return {
           ...state,
           currentBookID: actions.payload,
         };
       case "SET_BOOKS":
         return {
-          ...state,
           books: actions.payload,
         };
       default:

@@ -1,5 +1,4 @@
-.book-modal-container,
-.login-modal-container {
+.book-modal-container {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -11,14 +10,40 @@
   background-color: rgba(200, 200, 200, 0.7);
 }
 
+.book-modal {
+  width: 90vw;
+  height: 90vh;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 20px;
+  gap: 20px;
+
+
+  &:hover {
+    scale: none;
+    cursor: default;
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+}
+
 .modal-hidden {
   display: none;
 }
 
 .close-btn {
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 20px;
+  right: 30px;
   font-size: 50px;
+  z-index: 3;
   cursor: pointer;
 }
