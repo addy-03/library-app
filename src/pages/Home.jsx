@@ -1,4 +1,5 @@
 import BookList from "../components/BookList";
+import BookModal from "../components/BookModal";
 
 const Home = () => {
   return (
@@ -6,7 +7,7 @@ const Home = () => {
       <div className="container">
         <BookList />
       </div>
-      {/* <BookModal /> */}
+      <BookModal />
     </>
   );
 };

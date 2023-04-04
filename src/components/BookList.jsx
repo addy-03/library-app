@@ -9,6 +9,8 @@ const BookList = (props) => {
         <BookCard controls={props.controls} />
         <BookCard controls={props.controls} />
         <BookCard controls={props.controls} />
+        <BookCard controls={props.controls} />
+        <BookCard controls={props.controls} />
       </div>
     </>
   );

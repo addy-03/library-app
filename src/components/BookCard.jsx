@@ -8,13 +8,13 @@ const BookCard = (props) => {
       <img src={book1} alt="" className="cover-image" />
       <div className="details">
         <div className="title">
-          <b>Title:</b>{" "}
+          <b>Title:</b>
         </div>
         <div className="author">
-          <b>Author:</b>{" "}
+          <b>Author:</b>
         </div>
         <div className="genres">
-          <b>Genres:</b>{" "}
+          <b>Genres:</b>
         </div>
         <div className="excerpt">
           <b>Excerpt:</b> Lorem ipsum dolor sit amet consectetur adipisicing
