@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import BookList from "../components/BookList";
 import Header from "../components/Header";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";

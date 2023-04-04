@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import Header from "../components/Header";
-import { collection, addDoc, setDoc, doc } from "firebase/firestore";
-import { db, storage } from "../firebase";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { setDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { BooksContext } from "../context/BooksContext";

@@ -1,8 +1,4 @@
-// import { useContext, useEffect, useState } from "react";
 import BookCard from "./BookCard";
-// import { AuthContext } from "../context/AuthContext";
-// import { collection, onSnapshot, query, where } from "firebase/firestore";
-// import { db } from "../firebase";
 
 const BookList = (props) => {
   const { booksData } = props;
@@ -12,8 +8,15 @@ const BookList = (props) => {
       <div className="book-list">
         {booksData &&
           booksData.map((books) => {
-            console.log(books)
-            return <BookCard key={books.id} controls={props.controls} data={books.data} id={books.id}/>;
+            console.log(books);
+            return (
+              <BookCard
+                key={books.id}
+                controls={props.controls}
+                data={books.data}
+                id={books.id}
+              />
+            );
           })}
       </div>
     </>

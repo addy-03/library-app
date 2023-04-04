@@ -1,4 +1,3 @@
-import book1 from "../assets/books/Book.jpg";
 import editIcon from "../assets/icons/edit-icon.svg";
 import deleteIcon from "../assets/icons/delete-icon.svg";
 import { useContext } from "react";

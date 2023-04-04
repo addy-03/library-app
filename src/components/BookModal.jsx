@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import book1 from "../assets/books/Book.jpg";
 import { BooksContext } from "../context/BooksContext";
 
 const BookModal = () => {
